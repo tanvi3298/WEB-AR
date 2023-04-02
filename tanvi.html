@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <title> WEB AR</title>
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+    
+        <style>
+        *{
+        margin: 0;
+        padding: 0;
+            }
+        .demo{
+        height: 100vh;
+        width: 100%;
+        }
+        .demo model-viewer{
+         width: 100%;
+            height: 100%;
+        }
+        .btn-container{
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            text-align: center;
+            }
+            button{
+                border: none;
+                background: #edda73;
+                height: 40px;
+                width: 150px;
+                margin: 5px 15px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            button:focus{
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="demo">
+        <model-viewer id="model" src="RobotExpressive.glb" shadow-intensity="1" auto-rotate camera-controls touch-action="pan-y" skybox-image="stadium_01_4k.hdr" animation-name="Running" autoplay ar></model-viewer>
+            <div class="btn-container">
+            <button type="button" onclick="stop()">STOP</button>
+            <button type="button" onclick="run()">RUN</button>
+            <button type="button" onclick="wave()">WAVE</button>
+            <button type="button" onclick="jump()">JUMP</button>
+            </div>
+            </div>
+        <script>
+            var modelViewer = document.getElementById('model');
+            function stop(){
+                modelViewer.animationName = 'none';
+            }
+            
+            function run(){
+                modelViewer.animationName = 'Running';
+            }
+            
+            function wave(){
+                modelViewer.animationName = 'Wave';
+            }
+            
+            function jump(){
+                modelViewer.animationName = 'Jump';
+            }
+            
+        </script>
+    </body>
+</html>
